@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Essência Digital</title>
+<!-- fonts and styles (reuse same links from index) -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../style/estilo.css">
+<link rel="icon" href="../images/logo.png">
+</head>
+<body>
+
+    <div class="colloum">
+        <div class="upPage">
+            <img src="../images/logo.png" alt="logo" width="30vw" height="30vh">
+            <h1 class="textLogo">Essência Digital</h1>
+        </div>
+
+        <form id="form-id">
+            <div class="form-wrapper">
+
+                <div class="step active">
+                    <h2>Qual seu nome completo?</h2>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Digite seu nome">
+                </div>
+
+                <div class="step">
+                    <h2>Qual seu melhor email?</h2>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="email@exemplo.com">
+                </div>
+
+                <div class="step">
+                    <h2>Qual seu numero de Whatsapp? (DDD + número)</h2>
+                    <input type="number" id="number" name="number" class="form-control" placeholder="21995577207">
+                </div>
+
+                <div class="step">
+                    <h2>Qual nome da sua Empresa/Marca?</h2>
+                    <input type="text" id="bussines" name="bussines" class="form-control" placeholder="empresa">
+                </div>
+
+                <div class="step">
+                    <h2>Qual é o seu nicho?</h2>
+                    <input type="text" id="nincho" name="nincho" class="form-control" placeholder="fisioterapia">
+                </div>
+
+                <div class="step">
+                    <h2>Como é seu marketing hoje?</h2>
+                    <input type="radio" id="Nunca" name="anuncia" value="Nunca anunciou" required>
+                    <label for="Nunca">Nunca anunciei</label><br>
+                    <input type="radio" id="Já" name="anuncia" value="Já, mas parou">
+                    <label for="Já">Já anunciei mas parei</label><br>
+                    <input type="radio" id="Estou" name="anuncia" value="estou anunciando">
+                    <label for="Estou">Estou anunciando atualmente</label><br>
+                </div>
+
+                <div class="step">
+                    <h2>Qual investimento mensal você pretende destinar para anúncios?</h2>
+                    <input type="radio" id="1.000" name="valor" value="300,00 - 1.000,00" required>
+                    <label for="1.000">R$ 300,00 - R$ 1.000</label><br>
+                    <input type="radio" id="2.000" name="valor" value="1.000,00 - 2.000,00">
+                    <label for="2.000">R$ 1.000 - R$ 2.000</label><br>
+                    <input type="radio" id="3.000" name="valor" value="2.000,00 - 3.000,00">
+                    <label for="3.000">R$ 2.000 - R$ 3.000</label><br>
+                </div>
+
+                <div class="step">
+                    <h2>Qual é o seu principal objetivo com o tráfego pago?</h2>
+
+                    <input type="radio" id="site" name="estrutura" value="vendas" required>
+                    <label for="vendas">Gerar mais vendas</label><br>
+
+                    <input type="radio" id="leads" name="interesse" value="leads">
+                    <label for="leads">Gerar mais leads</label><br>
+
+                    <input type="radio" id="autoridade" name="interesse" value="autoridade">
+                    <label for="autoridade">Fortalecer minha marca / autoridade</label><br>
+
+                    <input type="radio" id="lancamento" name="interesse" value="lancamento">
+                    <label for="lancamento">Fazer um lançamento</label><br>
+
+                    <input type="radio" id="escala" name="interesse" value="escala">
+                    <label for="escala">Escalar uma operação já existente</label><br>
+                </div>
+
+                <div class="step">
+                    <h2>Você já possui alguma estrutura para vender?</h2>
+
+                    <input type="radio" id="site" name="estrutura" value="site" required>
+                    <label for="site">Tenho site</label><br>
+
+                    <input type="radio" id="landingpage" name="estrutura" value="landingpage">
+                    <label for="landingpage">Tenho landing page</label><br>
+
+                    <input type="radio" id="whatsapp" name="estrutura" value="whatsapp">
+                    <label for="whatsapp">Uso WhatsApp como principal canal</label><br>
+
+                    <input type="radio" id="crm" name="estrutura" value="crm">
+                    <label for="crm">Tenho CRM ou sistema de gestão</label><br>
+
+                    <input type="radio" id="nenhuma" name="estrutura" value="nenhuma">
+                    <label for="nenhuma">Ainda não tenho estrutura</label><br>
+                </div>
+
+                <div class="navigation">
+                    <button type="button" class="btn-prev" id="prevBtn">Voltar</button>
+                    <button type="button" class="btn-next" id="nextBtn">Próximo</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+<!-- backend script for navigation -->
+<script src="../scripts/backend.js"></script>
+</body>
+</html>

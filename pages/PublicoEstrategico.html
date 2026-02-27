@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publico estrategico</title>
+<!-- fonts and styles (reuse same links from index) -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../style/estilo.css">
+<link rel="icon" href="../images/logo.png">
+</head>
+<body>
+
+<div class="colloum">
+
+    <div class="upPage">
+        <img src="../images/logo.png" alt="logo" width="30vw" height="30vh">
+        <h1 class="textLogo">Essência Digital</h1>
+    </div>
+
+    <form id="form-id" novalidate>
+        <div class="form-wrapper">
+
+            <div class="step active">
+                <h2>Qual seu CEP? (Sem traço)</h2>
+                <input type="text" 
+                    id="cep" 
+                    name="cep" 
+                    class="form-control" 
+                    placeholder="12345678"
+                    pattern="[0-9]{8}"
+                    required>
+            </div>
+
+            <div class="step">
+                <h2>Qual sua data de nascimento?</h2>
+                <input type="date" 
+                    id="birthDate" 
+                    name="birthDate" 
+                    class="form-control"
+                    required>
+            </div>
+
+            <div class="step">
+                <h2>Qual sua identidade de gênero?</h2>
+                <input type="text" 
+                    id="gender" 
+                    name="gender" 
+                    class="form-control" 
+                    placeholder="Masculino - Feminino - Outro"
+                    required>
+            </div>
+
+            <div class="navigation">
+                <button type="button" class="btn-prev" id="prevBtn">Voltar</button>
+                <button type="button" class="btn-next" id="nextBtn">Próximo</button>
+            </div>
+
+        </div>
+    </form>
+
+</div>
+
+<!-- backend script for navigation -->
+<script src="../scripts/backend2.js"></script>
+</body>
+</html>
