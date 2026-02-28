@@ -23,5 +23,5 @@ app.listen(PORT, () => {
   pingServer();
 
   // Executa a cada 1 minuto
-  setInterval(pingServer, 60000);
+  setInterval(pingServer, 49000);
 });
