@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
             form.reset();
             container.classList.add('active'); // ativa animação
             setTimeout(() => {
-                window.location.href = "../pages/finalização.html";
+                window.location.href = "../pages/finalizacao.html";
             }, 600); // tempo da animação (mesmo do CSS)
         } catch (err) {
             alert('error')
