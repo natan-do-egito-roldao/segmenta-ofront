@@ -1,11 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+    let loading = false;
     const steps = document.querySelectorAll('.step');
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
     const comecarbtn = document.querySelector('.mybtn')
     const container = document.querySelector('.colloum');
     const form = document.getElementById("form-id");
+    const loader = document.querySelector(".loader");
+    const loaderbtn = document.querySelector(".btn-next2");
+    let clientId = localStorage.getItem("clientId");
+
+    if (!clientId) {
+    clientId = crypto.randomUUID();
+    localStorage.setItem("clientId", clientId);
+    }
 
     let current = 0;
 
@@ -125,38 +133,44 @@ document.addEventListener("DOMContentLoaded", () => {
     if (form) {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
+            if (loader){
+                loader.style.display = "block";
+                loader.classList.add("loading");
+                nextBtn.classList.add('none');
+                loaderbtn.classList.add('loading');
+            }
+
 
             const formData = new FormData(form);
 
             const dados = {
+            clientId: clientId,
             nome: formData.get("name"),
             email: formData.get("email"),
             empresa: formData.get("bussines"),
             whatsapp: formData.get("number"),
             nicho: formData.get("nincho"),
-
             anuncia: formData.getAll("anuncia"),
             investimento: formData.getAll("valor"),
             objetivo: formData.getAll("interesse"),
             estrutura: formData.getAll("estrutura")
-        };
-
-        console.log(dados);
-            try{
-                await fetch("https://script.google.com/macros/s/AKfycbzR24ob7xtDMKs7owuWyWEaO4ythm2FXZ274AOvqHY-mY02udlTjRB8RqM_iWeBBNmi/exec", {
-                    method: "POST",
-                    body: JSON.stringify(dados),
-                    mode: "no-cors"
-                });
-                form.reset();
-                container.classList.add('active'); // ativa animação
-                setTimeout(() => {
-                    window.location.href = "../pages/parabens.html";
-                }, 600); // tempo da animação (mesmo do CSS)
-            } catch (err) {
-                alert('error')
-                console.log(err)
-            }
+            };
+        await new Promise(resolve => setTimeout(resolve, 50));
+        try{
+            await fetch("https://script.google.com/macros/s/AKfycbwMKxRwiReuE-IJfTgkkT00KLE_na5ZhqgPidOVGVUy0qGyNhrVgMTow1i7MgDZ93M/exec", {
+                method: "POST",
+                body: JSON.stringify(dados),
+                mode: "no-cors"
+            });
+            form.reset();
+            container.classList.add('active'); // ativa animação
+            setTimeout(() => {
+                window.location.href = "../pages/parabens.html";
+            }, 600); // tempo da animação (mesmo do CSS)
+        } catch (err) {
+            alert('error')
+            console.log(err)
+        }
         })
     }
 
