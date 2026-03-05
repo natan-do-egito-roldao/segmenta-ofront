@@ -14,6 +14,12 @@ function pingServer() {
   }).on("error", (err) => {
     console.error("Erro no ping:", err.message);
   });
+
+  https.get("https://api-badbons-app.onrender.com/ping", (res) => {
+    console.log(`Ping enviado - Status: ${res.statusCode} - ${new Date().toLocaleTimeString()}`);
+  }).on("error", (err) => {
+    console.error("Erro no ping:", err.message);
+  });
 }
 
 app.listen(PORT, () => {
