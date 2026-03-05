@@ -2,6 +2,105 @@
     box-sizing: border-box;
 }
 
+
+/* ========================= */
+/* ANIMAÇÃO DE ENTRADA */
+/* ========================= */
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: scale(1.02);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+
+.hero {
+    text-align: center;
+    margin-top: 8vh;
+    animation: slideUpHero 1.2s ease;
+}
+
+.hero-title {
+    font-size: 4vh;
+    font-weight: 700;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #ffffff, #c3a465);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 2vh;
+    opacity: 0.8;
+    margin-top: 1.5vh;
+}
+
+@keyframes slideUpHero {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================= */
+/* CARDS PREMIUM */
+/* ========================= */
+
+.why {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.08);
+    transition: all .4s ease;
+}
+
+.why:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: #c3a465;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+/* ========================= */
+/* FUNDO LEVEMENTE ANIMADO */
+/* ========================= */
+
+body {
+    background: radial-gradient(circle at 20% 20%, #141a5c, #0d1247 40%, #191d27 100%);
+    background-size: 200% 200%;
+    animation: backgroundMove 12s ease infinite;
+}
+
+@keyframes backgroundMove {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* ========================= */
+/* BOTÃO MAIS IMPACTANTE */
+/* ========================= */
+
+.mybtn {
+    margin-top: 6vh;
+    transition: .4s;
+}
+
+.mybtn:hover {
+    transform: scale(1.1);
+}
+
+
 /* HTML: <div class="loader"></div> */
 .loader {
     display: none;
@@ -29,11 +128,14 @@
 
 html, body{
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100dvw;
+    height: 100dvh;
+    
 }
 
 body{
+    animation: fadeInPage 1.2s ease;
+    margin: 10px;
     margin:0;
     min-height:100vh;
     overflow-x:hidden;
@@ -360,4 +462,87 @@ input:-webkit-autofill{
     border:none;
     color:rgba(255,255,255,.6);
     cursor: pointer;
+}
+
+/* ========================= */
+/* BOTÃO CTA PREMIUM */
+/* ========================= */
+
+.mybtn {
+    margin-top: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mybtn p {
+    margin: 0;
+}
+
+/* Botão estilo principal */
+#comecarbtn {
+    position: relative;
+    padding: 18px 40px;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1.8vh;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.4s ease;
+
+    /* Gradiente principal */
+    background: linear-gradient(135deg, #c3a465, #11163d);
+    color: white;
+    box-shadow: 0 15px 35px rgba(124, 92, 255, 0.4);
+}
+
+/* Brilho animado passando */
+#comecarbtn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0.2),
+        rgba(255,255,255,0.6),
+        rgba(255,255,255,0.2)
+    );
+    transform: skewX(-20deg);
+    transition: 0.6s;
+}
+
+#comecarbtn:hover::before {
+    left: 130%;
+}
+
+/* Hover */
+#comecarbtn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(195, 164, 101, 0.6);
+}
+
+/* Clique */
+#comecarbtn:active {
+    transform: scale(0.97);
+}
+
+/* Animação contínua de leve pulsar */
+#comecarbtn {
+    animation: pulseCTA 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseCTA {
+    0% {
+        box-shadow: 0 0 0 0 rgba(195, 164, 101, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 18px rgba(195, 164, 101, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(195, 164, 101, 0);
+    }
 }
